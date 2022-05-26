@@ -26,7 +26,15 @@ function prepare_git() {
 }
 
 function main() {
-    install
+    if [[ $# -gt 1 ]]; then
+        case $1 in
+          -i|--install)
+            install
+            ;;
+          *)
+            echo error
+        esac
+    fi
 }
 
 main "$@"
