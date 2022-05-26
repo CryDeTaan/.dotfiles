@@ -7,3 +7,26 @@ echo '''
  | (_| | (_) | |_|  _| | |  __/\__ \
 (_)__,_|\___/ \__|_| |_|_|\___||___/
 '''
+
+# Defaults
+gitpath="$HOME/.dotfiles"
+gitorigin="https://github.com/CryDeTaan/.dotfiles.git"
+
+function install() {
+    # Install routine
+    prepare_git
+}
+
+function prepare_git() {
+    # Prepare git
+    if [[ ! -d $gitpath ]]; then
+        git clone $gitorigin $gitpath
+        return
+    fi
+}
+
+function main() {
+    install
+}
+
+main "$@"
