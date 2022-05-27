@@ -12,6 +12,8 @@ echo '''
 gitpath="$HOME/.dotfiles"
 gitorigin="https://github.com/CryDeTaan/.dotfiles.git"
 
+zsh_rc="$HOME/.zshrc"
+
 function install() {
     # Install routine
     prepare_git
@@ -32,7 +34,7 @@ function prepare_git() {
 }
 
 install_zsh() {
-   echo TODO: install zsh
+   ln -sf $gitpath/rc/zsh/zshrc $zsh_rc
 }
 
 function main() {
