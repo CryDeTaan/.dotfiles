@@ -1,0 +1,67 @@
+#!/bin/zsh
+
+# MacOS configurations.
+#   2022 @CryDeTaan
+
+###############################################################################
+# The Setup                                                                   #
+###############################################################################
+
+# Activates sudo mode, starts a sudo-refreshing loop, saves the loop's
+# process number to $SUDO_PID, and sets a C-c trap to stop the loop on
+# abrupt exit.
+# Note: Failure to run stopsudo after running this will leave a stray
+# https://stackoverflow.com/a/30547074
+# sudo-refreshing process running.
+startsudo() {
+    sudo -v
+    ( while true; do sudo -v; sleep 50; done; ) &
+    SUDO_PID="$!"
+    trap stopsudo SIGINT SIGTERM
+}
+
+# Usage: stopsudo
+# Kills the sudo loop and cancels the C-c trap.
+stopsudo() {
+    kill "$SUDO_PID"
+    wait "$SUDO_PID"
+    trap - SIGINT SIGTERM
+}
+
+startsudo
+
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
+
+###############################################################################
+# General                                                                     #
+###############################################################################
+# Set computer name (as done via System Preferences → Sharing)
+computer_name=$(scutil --get ComputerName)
+cat <<END
+This Mac currently identifies as: ${computer_name}
+Do you want to update this now [y/N]?
+END
+
+read yn
+
+if [[ "$yn" == [Yy] ]]; then
+    echo "Please provide the computer name to use:"
+    read computer_name
+
+    sudo scutil --set ComputerName "$computer_name"
+    sudo scutil --set HostName "$computer_name"
+    sudo scutil --set LocalHostName "$computer_name"
+    sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$computer_name"
+fi
+
+# Disable the sound effects on boot
+sudo nvram StartupMute=%01
+
+###############################################################################
+# Clean Up                                                                    #
+###############################################################################
+stopsudo
+
+echo "Done. Note that some of these changes require a logout/restart to take effect."

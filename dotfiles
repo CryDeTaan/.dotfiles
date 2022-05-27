@@ -22,6 +22,10 @@ function install() {
     case $install_component in
       zsh)
         install_zsh
+      ;;
+      macos_config)
+        install_macos_config
+      ;;
     esac
 }
 
@@ -35,6 +39,16 @@ function prepare_git() {
 
 install_zsh() {
    ln -sf $gitpath/rc/zsh/zshrc $zsh_rc
+}
+
+install_macos_config() {
+    if [[ "$OSTYPE" != darwin* ]]; then
+        echo error
+        exit 1
+    fi
+
+    source $HOME/.dotfiles/macOS/macOS
+
 }
 
 function main() {
