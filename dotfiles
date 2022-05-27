@@ -15,6 +15,12 @@ gitorigin="https://github.com/CryDeTaan/.dotfiles.git"
 function install() {
     # Install routine
     prepare_git
+    
+    install_component=$1
+    case $install_component in
+      zsh)
+        install_zsh
+    esac
 }
 
 function prepare_git() {
@@ -25,11 +31,15 @@ function prepare_git() {
     fi
 }
 
+install_zsh() {
+   echo TODO: install zsh
+}
+
 function main() {
     if [[ $# -gt 1 ]]; then
         case $1 in
           -i|--install)
-            install
+            install $2
             ;;
           *)
             echo error
