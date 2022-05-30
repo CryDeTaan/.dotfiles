@@ -60,8 +60,107 @@ fi
 sudo nvram StartupMute=%01
 
 ###############################################################################
+# Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
+###############################################################################
+
+# Set a blazingly fast keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 13
+
+# Disable “natural” scrolling
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+# Enable Right / Secondary click on Apple Magic Mouse
+defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonMode TwoButton
+
+###############################################################################
+# Finder                                                                      #
+###############################################################################
+# Expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+# Expand print panel by default
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+# Set $HOME as the default location for new Finder windows
+# Computer     : `PfCm`
+# Volume       : `PfVo`
+# $HOME        : `PfHm`
+# Desktop      : `PfDe`
+# Documents    : `PfDo`
+# All My Files : `PfAF`
+# For other paths, use `PfLo` and `file:///full/path/here/`
+defaults write com.apple.finder NewWindowTarget -string "PfHm"
+
+# Use list view in all Finder windows by default
+# Other view style.
+# Icon View   : `icnv`
+# List View   : `Nlsv`
+# Column View : `clmv`
+# Cover Flow  : `Flwv`
+defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
+
+# Show hidden files in the Finder. You can toggle the value using ⌘ + ⇧ + .
+defaults write com.apple.Finder "AppleShowAllFiles" -bool "false"
+
+# Avoid creating .DS_Store files on network or USB volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
+# Show the ~/Library folder
+chflags nohidden ~/Library
+
+###############################################################################
+# Dock                                                                        #
+###############################################################################
+
+# Wipe all (default) app icons from the Dock
+# This is only really useful when setting up a new Mac, or if you don’t use
+# the Dock to launch apps.
+defaults write com.apple.dock persistent-apps -array
+
+# Don’t show recent applications in Dock
+defaults write com.apple.dock show-recents -bool false
+
+# Show only open applications in the Dock
+defaults write com.apple.dock static-only -bool true
+
+# "Disables" the Dock. You can toggle the Dock using ⌥ alt+⌘ cmd+d.
+defaults write com.apple.dock "autohide" -bool "true"
+defaults write com.apple.dock "autohide-delay" -float "1000"
+
+# Disable Dock Bounce effects
+defaults write com.apple.dock no-bouncing -bool true;
+
+###############################################################################
+# Energy saving and Screensaver                                               #
+###############################################################################
+
+# Sleep the display after 60 minutes while charging
+sudo pmset -c displaysleep 60
+
+# Set machine sleep to 15 minutes on battery
+sudo pmset -b sleep 15
+
+# Disable screensave
+defaults -currentHost write com.apple.screensaver idleTime 0
+
+###############################################################################
 # Clean Up                                                                    #
 ###############################################################################
+# Restart Affected apps and processes.
+apps="Dock
+Finder
+cfprefsd
+SystemUIServer"
+
+for app in $apps; do
+    killall "$app" &> /dev/null
+done
+
+# Stop the sudo loop
 stopsudo
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."
