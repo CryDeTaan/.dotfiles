@@ -15,6 +15,23 @@ macos_config="$gitpath/macOS/macOS"
 
 zsh_rc="$HOME/.zshrc"
 
+function show_help() {
+    cat <<END
+    Usage: dotfiles [option] [component]
+    
+    Options:
+        -i, --install [component]     Install component
+
+    Examples:
+        dotfiles --install zsh
+        dotfiles --install macos_config
+        dotfiles -i zsh
+        dotfiles -i macos_config
+
+
+END
+}
+
 function install() {
     # Install routine
     prepare_git
@@ -59,9 +76,11 @@ function main() {
             install $2
             ;;
           *)
-            echo error
+            show_help
         esac
     fi
+
+    show_help
 }
 
 main "$@"
