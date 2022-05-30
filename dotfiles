@@ -11,6 +11,7 @@ echo '''
 # Defaults
 gitpath="$HOME/.dotfiles"
 gitorigin="https://github.com/CryDeTaan/.dotfiles.git"
+macos_config="$gitpath/macOS/macOS"
 
 zsh_rc="$HOME/.zshrc"
 
@@ -47,7 +48,7 @@ install_macos_config() {
         exit 1
     fi
 
-    source $HOME/.dotfiles/macOS/macOS
+    source $macos_config
 
 }
 
