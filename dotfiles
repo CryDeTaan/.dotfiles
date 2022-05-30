@@ -11,12 +11,14 @@ echo '''
 # Defaults
 gitpath="$HOME/.dotfiles"
 gitorigin="https://github.com/CryDeTaan/.dotfiles.git"
+
 macos_config="$gitpath/macOS/macOS"
+macos_brewfile="$gitpath/macOS/Brewfile"
 
 zsh_rc="$HOME/.zshrc"
 
 # Components this script knows how to setup
-declare -a components=("all" "zsh" "macos_config")
+declare -a components=("all" "zsh" "macos_config" "macos_brew")
 
 function show_help() {
     cat <<END
@@ -49,6 +51,9 @@ function install() {
       macos_config)
         install_macos_config
       ;;
+      macos_brew)
+        install_macos_brew
+      ;;
     esac
 }
 
@@ -74,6 +79,20 @@ install_macos_config() {
 
 }
 
+install_macos_brew() {
+    if [[ "$OSTYPE" != darwin* ]]; then
+        echo error
+        exit 1
+    fi
+
+    if ! command -v brew &> /dev/null; then
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+
+    brew bundle --file=$macos_brewfile
+
+}
+
 function main() {
     if [[ $# -gt 1 ]]; then
         case $1 in
@@ -83,6 +102,8 @@ function main() {
           *)
             show_help
         esac
+	
+	exit 0
     fi
 
     show_help

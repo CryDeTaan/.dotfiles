@@ -1,0 +1,29 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+
+# GUI Apps
+cask "alfred"
+cask "dozer"
+cask "google-chrome"
+cask "hyper"
+cask "phpstorm"
+cask "postman"
+cask "rectangle"
+cask "tableplus"
+cask "tinkerwell"
+cask "visual-studio-code"
+
+# Terminal Apps and Tools
+brew "bash" # Latest Bash version
+brew "composer"
+brew "jq"
+brew "mas"
+brew "mysql"
+
+# Security
+brew "nmap"
+
+# Mac App Store
+mas "Enpass", id: 732710998
+mas "Telegram", id: 747648890
