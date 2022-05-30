@@ -15,6 +15,9 @@ macos_config="$gitpath/macOS/macOS"
 
 zsh_rc="$HOME/.zshrc"
 
+# Components this script knows how to setup
+declare -a components=("all" "zsh" "macos_config")
+
 function show_help() {
     cat <<END
     Usage: dotfiles [option] [component]
@@ -28,6 +31,8 @@ function show_help() {
         dotfiles -i zsh
         dotfiles -i macos_config
 
+    Valid components:
+        ${components[@]}
 
 END
 }
