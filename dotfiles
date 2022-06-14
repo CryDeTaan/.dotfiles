@@ -70,8 +70,8 @@ function prepare_git() {
 }
 
 install_zsh() {
-    ln -sf $gitpath/rc/zsh/zshrc $zsh_rc
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    ln -sf $gitpath/rc/zsh/zshrc $zsh_rc
 }
 
 install_vim() {
