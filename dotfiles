@@ -16,9 +16,10 @@ macos_config="$gitpath/macOS/macOS"
 macos_brewfile="$gitpath/macOS/Brewfile"
 
 zsh_rc="$HOME/.zshrc"
+vim_rc="$HOME/.vimrc"
 
 # Components this script knows how to setup
-declare -a components=("all" "zsh" "macos_config" "macos_brew")
+declare -a components=("all" "zsh" "vim" "macos_config" "macos_brew")
 
 function show_help() {
     cat <<END
@@ -48,6 +49,9 @@ function install() {
       zsh)
         install_zsh
       ;;
+      vim)
+        install_vim
+      ;;
       macos_config)
         install_macos_config
       ;;
@@ -67,6 +71,10 @@ function prepare_git() {
 
 install_zsh() {
    ln -sf $gitpath/rc/zsh/zshrc $zsh_rc
+}
+
+install_vim() {
+   ln -sf $gitpath/rc/vim/vimrc $vim_rc
 }
 
 install_macos_config() {

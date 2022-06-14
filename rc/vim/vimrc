@@ -1,0 +1,24 @@
+" ----------------Vim Settings---------------- "
+" Set the <Leader> Variable. The default is '\'.
+let mapleader = ','
+
+" Make use of spaces when using tab, but still backpace spaces as tabs.
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+
+"Make backspace behave like other editors
+set backspace=indent,eol,start
+
+" ----------------Spell checking---------------- "
+" Enable spell check
+nmap <silent> <Leader>esc :set spell spelllang=en_gb <bar> set nocursorline<cr>
+
+" Disable spell check
+nmap <silent> <Leader>dsc :set nospell <bar> set cursorline<cr>
+
+" ----------------Vim Visuals---------------- "
+syntax enable       " Syntax highlighting
+set number          " Shows line line numbers in the buffer.
+
+" ----------------Vim Mappings---------------- "
+" Esc in insert mode.
+:inoremap jj <Esc>
