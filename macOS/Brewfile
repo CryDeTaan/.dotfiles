@@ -20,6 +20,7 @@ brew "composer"
 brew "jq"
 brew "mas"
 brew "mysql"
+brew "fd"
 
 # Security
 brew "nmap"
