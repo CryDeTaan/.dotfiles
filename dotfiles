@@ -85,7 +85,14 @@ install_zsh() {
     ln -sf $gitpath/config/zsh/oh-my-zsh/themes/crydetaan.zsh-theme $oh_my_zsh/custom/themes/crydetaan.zsh-theme
 
     # Add ZSH syntax highlighting plugin
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $oh_my_zsh/custom/plugins/zsh-syntax-highlighting
+    if [[ ! -d "$oh_my_zsh/custom/plugins/zsh-syntax-highlighting" ]]; then
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $oh_my_zsh/custom/plugins/zsh-syntax-highlighting
+    fi
+
+    # Add ZSH auto suggestions plugin
+    if [[ ! -d "$oh_my_zsh/custom/plugins/zsh-autosuggestions" ]]; then
+        git clone https://github.com/zsh-users/zsh-autosuggestions.git $oh_my_zsh/custom/plugins/zsh-autosuggestions
+    fi
 
 }
 
