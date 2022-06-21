@@ -1,3 +1,19 @@
+" ----------------Vundle---------------- "
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=$HOME/.vim/bundle/Vundle.vim
+
+" Vundle plugins
+call vundle#begin() " Where Vundle installs plugins
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 " ----------------Vim Settings---------------- "
 " Set the <Leader> Variable. The default is '\'.
 let mapleader = ','
