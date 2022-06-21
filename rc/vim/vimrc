@@ -68,3 +68,16 @@ nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
+
+" -----------------Search----------------- "
+
+set hlsearch	" Enable search highlighting.
+set incsearch	" Start highlighting first occurrence of match as typing happens
+set ignorecase	" Ignore case in vim search.
+
+
+"Remove search highlighting, default is to remain highlighted until new search is performed.
+nmap <silent> <Leader><space> :nohlsearch<cr>
+
+" Sets search to be case sensitive
+nmap <Leader>sc :set noignorecase<cr>
