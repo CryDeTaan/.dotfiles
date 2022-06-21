@@ -101,6 +101,13 @@ install_vim() {
 
     vim +PluginInstall +qall
 
+    # Set airline colour scheme
+    if [[ ! -d "$vim_config/autoload/airline/themes/" ]]; then
+        mkdir -p $vim_config/autoload/airline/themes/
+    fi
+
+    ln -sf $gitpath/config/vim/colour_scheme/crydetaan_airline.vim $vim_config/autoload/airline/themes/crydetaan.vim
+
 }
 
 install_macos_config() {

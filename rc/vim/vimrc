@@ -14,6 +14,9 @@ Plugin 'VundleVim/Vundle.vim'
 " Shows a git diff in the 'gutter' (sign column)
 Plugin 'airblade/vim-gitgutter'
 
+" Status/tabline for vim.
+Plugin 'vim-airline/vim-airline'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -42,3 +45,26 @@ set number          " Shows line line numbers in the buffer.
 " ----------------Vim Mappings---------------- "
 " Esc in insert mode.
 :inoremap jj <Esc>
+
+" ----------------Airline Settings---------------- "
+"  Some nice upgrades for the standard status bar.
+let g:airline_theme = 'crydetaan'                       " Custom theme
+set noshowmode                                          " Let Airline handle the mode visuals.
+
+let g:airline#extensions#tabline#enabled = 1            " Enables the tab line, to see tabs and buffers at the top.
+let g:airline#extensions#tabline#show_tabs = 1          " Displaying tabs, regardless of number.
+let g:airline#extensions#tabline#show_close_button = 0  " Configure whether close button should be shown.
+
+
+let g:airline#extensions#tabline#buffer_idx_mode = 0    " Displaying index of the buffer.
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>- <Plug>AirlineSelectPrevTab
+nmap <leader>+ <Plug>AirlineSelectNextTab
