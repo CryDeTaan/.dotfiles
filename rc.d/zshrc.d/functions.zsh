@@ -9,3 +9,9 @@ my_aliases() {
     vim $my_aliases_path
     source $my_aliases_path
 }
+
+mcd() {
+    local dir=$1
+    mkdir -p "$dir"
+    cd "$dir"
+}
