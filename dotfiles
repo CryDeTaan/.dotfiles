@@ -20,6 +20,7 @@ vim_rc="$HOME/.vimrc"
 vim_config="$HOME/.vim"
 
 oh_my_zsh="$HOME/.oh-my-zsh"
+fzf="$HOME/.fzf"
 
 # Components this script knows how to setup
 declare -a components=("all" "zsh" "vim" "macos_config" "macos_brew" "dotfiles(configure only)")
@@ -92,6 +93,16 @@ install_zsh() {
     # Add ZSH auto suggestions plugin
     if [[ ! -d "$oh_my_zsh/custom/plugins/zsh-autosuggestions" ]]; then
         git clone https://github.com/zsh-users/zsh-autosuggestions.git $oh_my_zsh/custom/plugins/zsh-autosuggestions
+    fi
+
+    # Install fzf
+    if [[ ! -d "$fzf" ]]; then
+        git clone --depth 1 https://github.com/junegunn/fzf.git $fzf
+        $fzf/install \
+            --key-bindings \
+            --completion \
+            --no-update-rc \
+            --no-bash
     fi
 
 }
