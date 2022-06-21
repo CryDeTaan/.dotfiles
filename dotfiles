@@ -151,6 +151,9 @@ function config() {
       dotfiles)
         config_dotfiles
       ;;
+      zsh)
+        config_zsh
+      ;;
       vim)
         config_vim
       ;;
@@ -160,6 +163,11 @@ function config() {
 
 function config_dotfiles() {
     vim $0
+}
+
+function config_zsh() {
+    vim $zsh_rc
+    zsh $zsh_rc
 }
 
 function config_vim() {
