@@ -21,6 +21,7 @@ brew "jq"
 brew "mas"
 brew "mysql"
 brew "fd"
+brew "bat"
 
 # Security
 brew "nmap"
