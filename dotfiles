@@ -19,7 +19,7 @@ zsh_rc="$HOME/.zshrc"
 vim_rc="$HOME/.vimrc"
 
 # Components this script knows how to setup
-declare -a components=("all" "zsh" "vim" "macos_config" "macos_brew")
+declare -a components=("all" "zsh" "vim" "macos_config" "macos_brew" "dotfiles(configure only)")
 
 function show_help() {
     cat <<END
@@ -27,12 +27,14 @@ function show_help() {
     
     Options:
         -i, --install [component]     Install component
+        -c, --config [component]      Configure component
 
     Examples:
         dotfiles --install zsh
         dotfiles --install macos_config
         dotfiles -i zsh
         dotfiles -i macos_config
+
 
     Valid components:
         ${components[@]}
@@ -102,11 +104,28 @@ install_macos_brew() {
 
 }
 
+function config() {
+    config_component=$1
+    case $config_component in
+      dotfiles)
+        config_dotfiles
+      ;;
+    esac
+ 
+}
+
+function config_dotfiles() {
+    vim $0
+}
+
 function main() {
     if [[ $# -gt 1 ]]; then
         case $1 in
           -i|--install)
             install $2
+            ;;
+          -c|--config)
+            config $2
             ;;
           *)
             show_help
