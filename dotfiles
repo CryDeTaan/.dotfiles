@@ -18,6 +18,8 @@ macos_brewfile="$gitpath/macOS/Brewfile"
 zsh_rc="$HOME/.zshrc"
 vim_rc="$HOME/.vimrc"
 
+oh_my_zsh="$HOME/.oh-my-zsh"
+
 # Components this script knows how to setup
 declare -a components=("all" "zsh" "vim" "macos_config" "macos_brew" "dotfiles(configure only)")
 
@@ -74,6 +76,12 @@ function prepare_git() {
 install_zsh() {
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
     ln -sf $gitpath/rc/zsh/zshrc $zsh_rc
+
+    # Set theme
+    if [[ ! -d "$oh_my_zsh/custom/themes/" ]]; then
+        mkdir -p $oh_my_zsh/custom/themes/
+    fi
+    ln -sf $gitpath/config/zsh/oh-my-zsh/themes/crydetaan.zsh-theme $oh_my_zsh/custom/themes/crydetaan.zsh-theme
 }
 
 install_vim() {
