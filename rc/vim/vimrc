@@ -11,6 +11,9 @@ call vundle#begin() " Where Vundle installs plugins
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" Shows a git diff in the 'gutter' (sign column)
+Plugin 'airblade/vim-gitgutter'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
