@@ -17,6 +17,7 @@ macos_brewfile="$gitpath/macOS/Brewfile"
 
 zsh_rc="$HOME/.zshrc"
 vim_rc="$HOME/.vimrc"
+vim_config="$HOME/.vim"
 
 oh_my_zsh="$HOME/.oh-my-zsh"
 
@@ -86,6 +87,12 @@ install_zsh() {
 
 install_vim() {
    ln -sf $gitpath/rc/vim/vimrc $vim_rc
+
+    # Set theme
+    if [[ ! -d "$vim_config/colors/" ]]; then
+        mkdir -p $vim_config/colors/
+    fi
+    ln -sf $gitpath/config/vim/colour_scheme/crydetaan.vim $vim_config/colors/
 }
 
 install_macos_config() {
@@ -118,12 +125,19 @@ function config() {
       dotfiles)
         config_dotfiles
       ;;
+      vim)
+        config_vim
+      ;;
     esac
  
 }
 
 function config_dotfiles() {
     vim $0
+}
+
+function config_vim() {
+    vim $vim_rc
 }
 
 function main() {

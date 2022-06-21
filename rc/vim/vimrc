@@ -16,6 +16,7 @@ nmap <silent> <Leader>esc :set spell spelllang=en_gb <bar> set nocursorline<cr>
 nmap <silent> <Leader>dsc :set nospell <bar> set cursorline<cr>
 
 " ----------------Vim Visuals---------------- "
+colorscheme crydetaan
 syntax enable       " Syntax highlighting
 set number          " Shows line line numbers in the buffer.
 
