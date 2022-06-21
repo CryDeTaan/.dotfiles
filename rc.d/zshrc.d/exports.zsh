@@ -24,3 +24,6 @@ if [ -f "$HOME"/.fzf.zsh ]; then
     export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
     bindkey "ç" fzf-cd-widget
 fi  && source ~/.fzf.zsh
+
+# Set the bat(cat replacement) theme
+export BAT_THEME="Solarized (dark)"
