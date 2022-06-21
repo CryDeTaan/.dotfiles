@@ -10,6 +10,12 @@ my_aliases() {
     source $my_aliases_path
 }
 
+my_exports() {
+    local my_exports_path="$HOME/.dotfiles/rc.d/zshrc.d/exports.zsh"
+    vim $my_exports_path
+    source $my_exports_path
+}
+
 mcd() {
     local dir=$1
     mkdir -p "$dir"
