@@ -83,6 +83,10 @@ install_zsh() {
         mkdir -p $oh_my_zsh/custom/themes/
     fi
     ln -sf $gitpath/config/zsh/oh-my-zsh/themes/crydetaan.zsh-theme $oh_my_zsh/custom/themes/crydetaan.zsh-theme
+
+    # Add ZSH syntax highlighting plugin
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $oh_my_zsh/custom/plugins/zsh-syntax-highlighting
+
 }
 
 install_vim() {
