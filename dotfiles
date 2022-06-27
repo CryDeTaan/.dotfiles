@@ -1,11 +1,11 @@
 #!/bin/bash
 
 echo '''
-      _       _    __ _ _
-   __| | ___ | |_ / _(_) | ___  ___
-  / _` |/ _ \| __| |_| | |/ _ \/ __|
- | (_| | (_) | |_|  _| | |  __/\__ \
-(_)__,_|\___/ \__|_| |_|_|\___||___/
+          _       _    __ _ _
+       __| | ___ | |_ / _(_) | ___  ___
+      / _` |/ _ \| __| |_| | |/ _ \/ __|
+     | (_| | (_) | |_|  _| | |  __/\__ \
+    (_)__,_|\___/ \__|_| |_|_|\___||___/
 '''
 
 # Defaults
@@ -26,9 +26,9 @@ fzf="$HOME/.fzf"
 declare -a components=("all" "zsh" "vim" "macos_config" "macos_brew" "dotfiles(configure only)")
 
 function show_help() {
-    cat <<END
+    echo """
     Usage: dotfiles [option] [component]
-    
+
     Options:
         -i, --install [component]     Install component
         -c, --config [component]      Configure component
@@ -42,28 +42,27 @@ function show_help() {
 
     Valid components:
         ${components[@]}
-
-END
+    """
 }
 
 function install() {
     # Install routine
     prepare_git
-    
+
     install_component=$1
     case $install_component in
-      zsh)
-        install_zsh
-      ;;
-      vim)
-        install_vim
-      ;;
-      macos_config)
-        install_macos_config
-      ;;
-      macos_brew)
-        install_macos_brew
-      ;;
+        zsh)
+            install_zsh
+            ;;
+        vim)
+            install_vim
+            ;;
+        macos_config)
+            install_macos_config
+            ;;
+        macos_brew)
+            install_macos_brew
+            ;;
     esac
 }
 
@@ -118,7 +117,7 @@ install_vim() {
 
     # Vundle
     if [[ ! -d "$vim_config/bundle/Vundle.vim" ]]; then
-        git clone https://github.com/VundleVim/Vundle.vim.git $vim_config/bundle/Vundle.vim 
+        git clone https://github.com/VundleVim/Vundle.vim.git $vim_config/bundle/Vundle.vim
     fi
 
     vim +PluginInstall +qall
@@ -159,17 +158,17 @@ install_macos_brew() {
 function config() {
     config_component=$1
     case $config_component in
-      dotfiles)
-        config_dotfiles
-      ;;
-      zsh)
-        config_zsh
-      ;;
-      vim)
-        config_vim
-      ;;
+        dotfiles)
+            config_dotfiles
+            ;;
+        zsh)
+            config_zsh
+            ;;
+        vim)
+            config_vim
+            ;;
     esac
- 
+
 }
 
 function config_dotfiles() {
@@ -188,17 +187,17 @@ function config_vim() {
 function main() {
     if [[ $# -gt 1 ]]; then
         case $1 in
-          -i|--install)
-            install $2
-            ;;
-          -c|--config)
-            config $2
-            ;;
-          *)
-            show_help
+            -i|--install)
+                install $2
+                ;;
+            -c|--config)
+                config $2
+                ;;
+            *)
+                show_help
         esac
-	
-	exit 0
+
+        exit 0
     fi
 
     show_help
