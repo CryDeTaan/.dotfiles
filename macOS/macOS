@@ -59,6 +59,14 @@ fi
 # Disable the sound effects on boot
 sudo nvram StartupMute=%01
 
+# Show battery in Control Centre and not in menu bar
+defaults -currentHost write com.apple.controlcenter Battery -int 25
+
+# Always show full date
+defaults write com.apple.menuextra.clock ShowDate -int 1
+
+# Removed Spotlight icon from menubar
+defaults -currentHost write com.apple.Spotlight MenuItemHidden -int 1
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
