@@ -167,6 +167,9 @@ function config() {
         vim)
             config_vim
             ;;
+        macos_config)
+            config_macos_config
+            ;;
     esac
 
 }
@@ -182,6 +185,15 @@ function config_zsh() {
 
 function config_vim() {
     vim $vim_rc
+}
+
+function config_macos_config() {
+    vim $macos_config
+    echo "Do want to source the change now [y/N]?"
+    read yn
+    if [[ $yn ==  "y" ]]; then
+        source $macos_config
+    fi
 }
 
 function main() {
