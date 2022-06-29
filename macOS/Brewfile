@@ -7,22 +7,28 @@ cask "alfred"
 cask "dozer"
 cask "google-chrome"
 cask "hyper"
-cask "phpstorm"
-cask "postman"
+cask "iterm2"
 cask "rectangle"
-cask "tableplus"
-cask "tinkerwell"
-cask "visual-studio-code"
 
 # Terminal Apps and Tools
 brew "bash" # Latest Bash version
-brew "composer"
 brew "jq"
 brew "mas"
-brew "mysql"
 brew "fd"
 brew "bat"
 brew "exa"
+
+# Development
+brew "php"
+brew "composer"
+brew "mysql"
+
+cask "phpstorm"
+cask "postman"
+cask "tableplus"
+cask "tinkerwell"
+
+cask "visual-studio-code"
 
 # Security
 brew "nmap"
