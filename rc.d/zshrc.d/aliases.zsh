@@ -10,3 +10,5 @@ if hash exa 2>/dev/null; then
     alias ls="exa --long --header --git"
     alias ll="exa --all --all --long --header --git"
 fi
+
+alias my_ip="dig +short myip.opendns.com @resolver1.opendns.com"
