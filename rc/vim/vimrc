@@ -14,6 +14,9 @@ Plugin 'VundleVim/Vundle.vim'
 " Shows a git diff in the 'gutter' (sign column)
 Plugin 'airblade/vim-gitgutter'
 
+" A Git wrapper so awesome, it should be illega
+Plugin 'tpope/vim-fugitive'
+
 " Status/tabline for vim.
 Plugin 'vim-airline/vim-airline'
 
