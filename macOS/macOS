@@ -75,7 +75,8 @@ defaults -currentHost write com.apple.Spotlight MenuItemHidden -int 1
 defaults -currentHost write com.apple.controlcenter NowPlaying -int 8
 
 # Remove Focuses icon from Menu bar
-defaults -currentHost write com.apple.controlcenter FocusModes -int 8
+# Causing problems with the date being greyed out
+#defaults -currentHost write com.apple.controlcenter FocusModes -int 8
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
