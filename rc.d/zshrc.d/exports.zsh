@@ -34,3 +34,7 @@ if [ -f "$HOME"/.nvm/nvm.sh ]; then
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
+
+# Adding Composer to $PATH if running on system
+which composer > /dev/null 2>&1 && export PATH="$HOME/.composer/vendor/bin:$PATH"
+
