@@ -8,7 +8,7 @@
         "revision": "278641c2be95469a189732ad5a3674bb69400312"
       },
       "homebrew/core": {
-        "revision": "4b19fe637f6e944eae52cab59ce6aa4bfe304bf7"
+        "revision": "0415a1e97bba5f2504570e8d92b6762a6afbd075"
       }
     },
     "cask": {
@@ -82,6 +82,12 @@
         "version": "2.0.23",
         "options": {
           "full_name": "notion"
+        }
+      },
+      "helo": {
+        "version": "1.6.2",
+        "options": {
+          "full_name": "helo"
         }
       }
     },
@@ -503,7 +509,7 @@
       "monterey": {
         "HOMEBREW_VERSION": "3.5.6",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "4b19fe637f6e944eae52cab59ce6aa4bfe304bf7",
+        "Homebrew/homebrew-core": "0415a1e97bba5f2504570e8d92b6762a6afbd075",
         "CLT": "13.4.0.0.1.1651278267",
         "Xcode": "13.4",
         "macOS": "12.4"
