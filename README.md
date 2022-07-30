@@ -55,8 +55,17 @@ issues.
 
 `dotfiles --install zsh` will install oh-my-zsh, add set a theme, enable some
 plugins, and install fzf. The zsh configuration is optimised to make use of the
-[`bat`](https://github.com/sharkdp/bat) as well as the
+[`bat`](https://github.com/sharkdp/bat) as well as
 [`exa`](https://github.com/ogham/exa)
 
 These can be installed on MacOS running the brew installer `dotfiles --install
 macos_brew` but is also available through most package managers.
+
+## Plugin ¯\\_(ツ)_/¯
+
+### fzf
+Making use of **fzf** to do some command line magic.
+| keys | description | options
+| --- | --- | --- |
+| 'ctrl+r' | fuzzy seach command history | |
+| 'ctrl+t' | fuzzy search filenames from pwd | `?` - toggle preview `ctrl+e` - open in vim |
