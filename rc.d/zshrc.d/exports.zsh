@@ -9,15 +9,15 @@ if [ -f "$HOME"/.fzf.zsh ]; then
         --multi
         --preview-window=:hidden
         --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} 2> /dev/null || cat {})) || ([[ -d {} ]] && (exa --tree --level=4 --long {} 2> /dev/null || ls {})) || echo {} 2> /dev/null | head -200'
-        --color='hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:000'
-        --prompt='∼ ' --pointer='>' --marker='+'
+        --color='info:078,hl:148,hl+:154,prompt:075,pointer:046,marker:010,bg+:237,gutter:000'
+        --prompt='~ ' --pointer='»' --marker='+'
         --bind '?:toggle-preview'
         --bind 'ctrl-a:select-all'
         --bind 'ctrl-y:execute-silent(echo {+} | pbcopy)'
         --bind 'ctrl-e:execute(vim {} < /dev/tty > /dev/tty)'
     "
     # fzf's command
-    export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude '.git' --exclude 'node_modules' --exclude 'Library' --exclude '.config'"
+    export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude '.git' --exclude 'node_modules' --exclude 'Library' --exclude '.config' --exclude '.composer' --exclude '.cache' --exclude '.oh-my-zsh' --exclude 'vendor'"
     # CTRL-T's command
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     # ALT-C's command
