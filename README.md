@@ -67,5 +67,5 @@ macos_brew` but is also available through most package managers.
 Making use of **fzf** to do some command line magic.
 | keys | description | options
 | --- | --- | --- |
-| 'ctrl+r' | fuzzy seach command history | |
-| 'ctrl+t' | fuzzy search filenames from pwd | `?` - toggle preview `ctrl+e` - open in vim |
+| `ctrl+r` | fuzzy seach command history | |
+| `ctrl+t` | fuzzy search filenames from pwd | `?` - toggle preview, `ctrl+e` - open in vim |
