@@ -61,6 +61,15 @@ plugins, and install fzf. The zsh configuration is optimised to make use of the
 These can be installed on MacOS running the brew installer `dotfiles --install
 macos_brew` but is also available through most package managers.
 
+## Commands
+
+Some commands for easy edit of .dotfiles ecosystem
+| command | description |
+| --- | --- |
+| `my_functions` | edit functions |
+| `my_aliases` | edit aliases |
+| `my_exports` | edit exports |
+
 ## Plugin ¯\\_(ツ)_/¯
 
 ### fzf
