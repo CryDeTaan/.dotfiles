@@ -12,3 +12,5 @@ if hash exa 2>/dev/null; then
 fi
 
 alias my_ip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+alias my_ssh_key="cat -p $HOME/.ssh/id_ed25519.pub | pbcopy"
