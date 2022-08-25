@@ -29,6 +29,7 @@ cask "postman"
 cask "tableplus"
 cask "tinkerwell"
 cask "helo"
+cask "invoker"
 
 cask "visual-studio-code"
 
