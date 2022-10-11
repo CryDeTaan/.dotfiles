@@ -51,3 +51,11 @@ function rand-str {
     #               To remove the percentage sign, append your code with ; echo.
     #               https://unix.stackexchange.com/a/700680
 }
+
+function debase() {
+    echo -n "$1" | base64 -D
+}
+
+function enbase() {
+    echo -n "$1" | base64
+}
