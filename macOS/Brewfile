@@ -33,6 +33,8 @@ cask "invoker"
 
 cask "visual-studio-code"
 
+tap "stripe/stripe-cli"
+
 # Security
 brew "nmap"
 
