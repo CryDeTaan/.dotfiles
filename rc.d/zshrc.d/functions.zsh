@@ -53,9 +53,58 @@ function rand-str {
 }
 
 function debase() {
-    echo -n "$1" | base64 -D
+    echo -n "$1" | base64 -D ;echo
 }
 
 function enbase() {
     echo -n "$1" | base64
+}
+
+kali_start_vm() {
+    # Path to the VMX file
+    vm="$HOME/Virtual Machines/kali-linux-2022-W39-vmware-amd64.vmwarevm"
+
+    echo "Starting Kali..."
+    vmrun -T fusion start "${vm}" nogui
+
+    timeout=0
+    # Sleep for 5 seconds loops for a minute.
+    while [[ ! $(vmrun list | grep ${vm}) ]]; do
+        sleep 5
+
+        let "timeout++"
+        # If not running after a minute open GUI and end.
+        if [ "$timeout" -eq 4 ]; then
+            echo "\nSomething went wrong, manually check";
+            echo "Opening the GUI..."
+
+            open -a "VMware Fusion"
+            
+            return 1
+        fi
+    done
+        
+    echo "\nKali started, trying to connect...\n"
+    # Try to get the IP, failing that open the GUI
+    ip="$(vmrun -T fusion getGuestIPAddress ${vm} -wait)"
+    sleep 15
+    if [ $? -ne 0 ]; then
+        echo "\nKali started, but there is an issue communicating with it using vmrun."
+        echo "Opening the GUI..."
+
+        open -a "VMware Fusion"
+        
+        return 1
+    fi
+    
+    # SSH to Kali, failing that, open the GUI
+    ssh kali@$ip 
+    if [ $? -ne 0 ]; then
+        echo "\nKali started, but could not connect."
+        echo "Opening the GUI..."
+
+        open -a "VMware Fusion"
+        
+        return 1
+    fi
 }
