@@ -14,7 +14,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Shows a git diff in the 'gutter' (sign column)
 Plugin 'airblade/vim-gitgutter'
 
-" A Git wrapper so awesome, it should be illega
+" A Git wrapper so awesome, it should be illegal
 Plugin 'tpope/vim-fugitive'
 
 " Status/tabline for vim.
@@ -23,6 +23,9 @@ Plugin 'vim-airline/vim-airline'
 " One Dark Theme
 Plugin 'joshdick/onedark.vim'
 
+" Improved syntax highlighting
+Plugin 'sheerun/vim-polyglot'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -30,7 +33,7 @@ filetype plugin indent on    " required
 " Set the <Leader> Variable. The default is '\'.
 let mapleader = ','
 
-" Make use of spaces when using tab, but still backpace spaces as tabs.
+" Make use of spaces when using tab, but still backspace spaces as tabs.
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 "Make backspace behave like other editors
@@ -38,10 +41,10 @@ set backspace=indent,eol,start
 
 " ----------------Spell checking---------------- "
 " Enable spell check
-nmap <silent> <Leader>esc :set spell spelllang=en_gb <bar> set nocursorline<cr>
+nmap <silent> <Leader>esc :set spell spelllang=en_gb<cr>
 
 " Disable spell check
-nmap <silent> <Leader>dsc :set nospell <bar> set cursorline<cr>
+nmap <silent> <Leader>dsc :set nospell<cr>
 
 " ----------------Vim Visuals---------------- "
 if isdirectory(expand('~/.vim/bundle/onedark.vim/'))
@@ -70,7 +73,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" Make adjusing split sizes a bit more friendly
+" Make adjusting split sizes a bit more friendly
 noremap <silent> <C-Left> :vertical resize +3<CR>
 noremap <silent> <C-Right> :vertical resize -3<CR>
 noremap <silent> <C-Up> :resize +3<CR>
