@@ -20,6 +20,9 @@ Plugin 'tpope/vim-fugitive'
 " Status/tabline for vim.
 Plugin 'vim-airline/vim-airline'
 
+" One Dark Theme
+Plugin 'joshdick/onedark.vim'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -41,7 +44,13 @@ nmap <silent> <Leader>esc :set spell spelllang=en_gb <bar> set nocursorline<cr>
 nmap <silent> <Leader>dsc :set nospell <bar> set cursorline<cr>
 
 " ----------------Vim Visuals---------------- "
-colorscheme crydetaan
+if isdirectory(expand('~/.vim/bundle/onedark.vim/'))
+    let g:onedark_color_overrides = {
+        \ "background": {"gui": "NONE", "cterm": "NONE", "cterm16": "NONE" },
+    \}
+    colorscheme onedark
+endif
+
 syntax enable       " Syntax highlighting
 set number          " Shows line line numbers in the buffer.
 
@@ -69,13 +78,11 @@ noremap <silent> <C-Down> :resize -3<CR>
 
 " ----------------Airline Settings---------------- "
 "  Some nice upgrades for the standard status bar.
-let g:airline_theme = 'crydetaan'                       " Custom theme
 set noshowmode                                          " Let Airline handle the mode visuals.
 
 let g:airline#extensions#tabline#enabled = 1            " Enables the tab line, to see tabs and buffers at the top.
 let g:airline#extensions#tabline#show_tabs = 1          " Displaying tabs, regardless of number.
 let g:airline#extensions#tabline#show_close_button = 0  " Configure whether close button should be shown.
-
 
 let g:airline#extensions#tabline#buffer_idx_mode = 0    " Displaying index of the buffer.
 nmap <leader>1 <Plug>AirlineSelectTab1
