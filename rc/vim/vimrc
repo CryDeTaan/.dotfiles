@@ -71,6 +71,10 @@ nmap <silent> <Leader>esc :set spell spelllang=en_gb<cr>
 " Disable spell check
 nmap <silent> <Leader>dsc :set nospell<cr>
 
+" Strip all trailing whitespace
+" https://vi.stackexchange.com/a/2285
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
 " ----------------Vim Visuals---------------- "
 if isdirectory(expand('~/.vim/bundle/onedark.vim/'))
     let g:onedark_color_overrides = {
