@@ -94,7 +94,7 @@ kali_start_vm() {
 
         open -a "VMware Fusion"
         
-        return 1
+        return 1 
     fi
     
     # SSH to Kali, failing that, open the GUI
