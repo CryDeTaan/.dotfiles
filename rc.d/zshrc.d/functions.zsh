@@ -79,11 +79,11 @@ kali_start_vm() {
             echo "Opening the GUI..."
 
             open -a "VMware Fusion"
-            
+
             return 1
         fi
     done
-        
+
     echo "\nKali started, trying to connect...\n"
     # Try to get the IP, failing that open the GUI
     ip="$(vmrun -T fusion getGuestIPAddress ${vm} -wait)"
@@ -93,18 +93,18 @@ kali_start_vm() {
         echo "Opening the GUI..."
 
         open -a "VMware Fusion"
-        
-        return 1 
+
+        return 1
     fi
-    
+
     # SSH to Kali, failing that, open the GUI
-    ssh kali@$ip 
+    ssh kali@$ip
     if [ $? -ne 0 ]; then
         echo "\nKali started, but could not connect."
         echo "Opening the GUI..."
 
         open -a "VMware Fusion"
-        
+
         return 1
     fi
 }
