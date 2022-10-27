@@ -42,6 +42,28 @@ set backspace=indent,eol,start
 " Visual cues for tabs and trailing characters
 set list listchars=tab:→ ,trail:·
 
+" Splits
+set splitbelow splitright
+
+" ----------------Vim Mappings---------------- "
+" Esc in insert mode.
+:inoremap jj <Esc>
+
+" Buffers
+nnoremap <Leader>b :buffers<CR>:buffer<Space>
+
+" Remap splits navigation to just CTRL+hjkl
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Make adjusting split sizes a bit more friendly
+noremap <silent> <C-Left> :vertical resize +3<CR>
+noremap <silent> <C-Right> :vertical resize -3<CR>
+noremap <silent> <C-Up> :resize +3<CR>
+noremap <silent> <C-Down> :resize -3<CR>
+
 " ----------------Spell checking---------------- "
 " Enable spell check
 nmap <silent> <Leader>esc :set spell spelllang=en_gb<cr>
@@ -60,28 +82,6 @@ endif
 syntax enable       " Syntax highlighting
 set number          " Shows line line numbers in the buffer.
 
-" ----------------Vim Mappings---------------- "
-" Esc in insert mode.
-:inoremap jj <Esc>
-
-" Buffers
-nnoremap <Leader>b :buffers<CR>:buffer<Space>
-
-" Splits
-set splitbelow splitright
-
-" Remap splits navigation to just CTRL+hjkl
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-" Make adjusting split sizes a bit more friendly
-noremap <silent> <C-Left> :vertical resize +3<CR>
-noremap <silent> <C-Right> :vertical resize -3<CR>
-noremap <silent> <C-Up> :resize +3<CR>
-noremap <silent> <C-Down> :resize -3<CR>
-
 " ----------------Airline Settings---------------- "
 "  Some nice upgrades for the standard status bar.
 set noshowmode                                          " Let Airline handle the mode visuals.
@@ -89,8 +89,8 @@ set noshowmode                                          " Let Airline handle the
 let g:airline#extensions#tabline#enabled = 1            " Enables the tab line, to see tabs and buffers at the top.
 let g:airline#extensions#tabline#show_tabs = 1          " Displaying tabs, regardless of number.
 let g:airline#extensions#tabline#show_close_button = 0  " Configure whether close button should be shown.
-
 let g:airline#extensions#tabline#buffer_idx_mode = 0    " Displaying index of the buffer.
+
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
 nmap <leader>3 <Plug>AirlineSelectTab3
@@ -104,11 +104,9 @@ nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
 
 " -----------------Search----------------- "
-
 set hlsearch	" Enable search highlighting.
 set incsearch	" Start highlighting first occurrence of match as typing happens
 set ignorecase	" Ignore case in vim search.
-
 
 "Remove search highlighting, default is to remain highlighted until new search is performed.
 nmap <silent> <Leader><space> :nohlsearch<cr>
