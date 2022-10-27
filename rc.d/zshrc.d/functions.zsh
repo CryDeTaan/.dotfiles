@@ -60,9 +60,20 @@ function enbase() {
     echo -n "$1" | base64
 }
 
-kali_start_vm() {
+kali_vm() {
     # Path to the VMX file
     vm="$HOME/Virtual Machines/kali-linux-2022-W39-vmware-amd64.vmwarevm"
+
+    # Check if vm is already running
+    # TODO: This should be improved
+    vmrun list | grep $vm > /dev/null 2>&1
+    if [ $? -eq 0 ]; then
+        echo "Kali aready running, trying to ssh"
+        ip="$(vmrun -T fusion getGuestIPAddress ${vm} -wait)"
+        ssh kali@$ip
+
+        return 0
+    fi
 
     echo "Starting Kali..."
     vmrun -T fusion start "${vm}" nogui
