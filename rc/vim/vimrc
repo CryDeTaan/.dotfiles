@@ -39,6 +39,9 @@ set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 "Make backspace behave like other editors
 set backspace=indent,eol,start
 
+" Visual cues for tabs and trailing characters
+set list listchars=tab:→ ,trail:·
+
 " ----------------Spell checking---------------- "
 " Enable spell check
 nmap <silent> <Leader>esc :set spell spelllang=en_gb<cr>
