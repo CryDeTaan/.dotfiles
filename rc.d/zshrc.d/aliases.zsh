@@ -13,6 +13,6 @@ fi
 
 alias my_ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
-alias my_ssh_key="cat -p $HOME/.ssh/id_ed25519.pub | pbcopy"
+alias my_ssh_key="cat -p $HOME/.ssh/id_rsa.pub | pbcopy"
 
 alias cglog="git log  --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%cd -  %s' | head -n5"
