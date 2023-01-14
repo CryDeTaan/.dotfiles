@@ -38,3 +38,4 @@ fi
 # Adding Composer to $PATH if running on system
 which composer > /dev/null 2>&1 && export PATH="$HOME/.composer/vendor/bin:$PATH"
 
+hash aws 2>/dev/null && hash jq 2>/dev/null && export AWS_PAGER="jq"
