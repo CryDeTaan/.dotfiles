@@ -63,6 +63,12 @@ function install() {
         macos_brew)
             install_macos_brew
             ;;
+        all)
+            install_zsh
+            install_vim
+            install_macos_config
+            install_macos_brew
+            ;;
     esac
 }
 
