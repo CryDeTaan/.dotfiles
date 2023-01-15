@@ -10,6 +10,7 @@ cask "hyper"
 cask "iterm2"
 cask "rectangle"
 cask "notion"
+cask "obsidian"
 
 # Terminal Apps and Tools
 brew "bash" # Latest Bash version
