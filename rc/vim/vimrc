@@ -26,6 +26,9 @@ Plugin 'joshdick/onedark.vim'
 " Improved syntax highlighting
 Plugin 'sheerun/vim-polyglot'
 
+" Vim motions on speed!
+Plugin 'easymotion/vim-easymotion'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -108,12 +111,30 @@ nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
 
 " -----------------Search----------------- "
-set hlsearch	" Enable search highlighting.
-set incsearch	" Start highlighting first occurrence of match as typing happens
-set ignorecase	" Ignore case in vim search.
+set hlsearch    " Enable search highlighting.
+set incsearch   " Start highlighting first occurrence of match as typing happens
+set ignorecase  " Ignore case in vim search.
 
 "Remove search highlighting, default is to remain highlighted until new search is performed.
 nmap <silent> <Leader><space> :nohlsearch<cr>
 
 " Sets search to be case sensitive
 nmap <Leader>sc :set noignorecase<cr>
+
+" -----------------Vim Motion----------------- "
+let g:EasyMotion_do_mapping = 1 " Disable default mappings
+
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+" nmap s <Plug>(easymotion-s)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap s <Plug>(easymotion-s2)
+
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
