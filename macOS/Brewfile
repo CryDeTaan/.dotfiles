@@ -1,15 +1,10 @@
 tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
 
 # GUI Apps
-cask "alfred"
-cask "dozer"
-cask "google-chrome"
 cask "iterm2"
-cask "rectangle"
-cask "notion"
-cask "obsidian"
+cask "nikitabobko/tap/aerospace"
+cask "jordanbaird-ice"
+cask "raycast"
 
 # Terminal Apps and Tools
 brew "bash" # Latest Bash version
@@ -17,24 +12,15 @@ brew "jq"
 brew "mas"
 brew "fd"
 brew "bat"
-brew "exa"
+brew "eza"
 brew "awscli"
 
+tap "FelixKratz/formulae"
+brew "borders"
+
 # Development
-brew "php"
-brew "composer"
-brew "mysql"
-
-cask "phpstorm"
-cask "postman"
-cask "tableplus"
-cask "tinkerwell"
-cask "helo"
-cask "invoker"
-
 cask "visual-studio-code"
-
-tap "stripe/stripe-cli"
+cask "docker"
 
 # Security
 brew "nmap"

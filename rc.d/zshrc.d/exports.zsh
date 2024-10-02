@@ -8,7 +8,7 @@ if [ -f "$HOME"/.fzf.zsh ]; then
         --height=20%
         --multi
         --preview-window=:hidden
-        --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} 2> /dev/null || cat {})) || ([[ -d {} ]] && (exa --tree --level=4 --long {} 2> /dev/null || ls {})) || echo {} 2> /dev/null | head -200'
+        --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} 2> /dev/null || cat {})) || ([[ -d {} ]] && (eza -TL4 --long {} 2> /dev/null || ls {})) || echo {} 2> /dev/null | head -200'
         --color='info:078,hl:148,hl+:154,prompt:075,pointer:046,marker:010,bg+:237,gutter:000'
         --prompt='~ ' --pointer='»' --marker='+'
         --bind '?:toggle-preview'
