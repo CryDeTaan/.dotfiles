@@ -211,5 +211,11 @@ if.app-id = 'com.microsoft.VSCode'
 run = 'move-node-to-workspace C' # mnemonics C - Code
 
 [[on-window-detected]]
-if.app-id = 'com.apple.mail'
-run = 'move-node-to-workspace M' # mnemonics M - Mail
+if.app-id = 'com.apple.Music'
+run = 'move-node-to-workspace M' # mnemonics M - Music
+
+# Beyond this point should never be commited, these will typically be for setting which
+# are only relevant to one of my systems. Suggested workflow is to:
+# 1. Remove (cut or 'visual select and d' in Vim) lines from this point on
+# 2. Commit
+# 3. Paste (or p in Vim) 
