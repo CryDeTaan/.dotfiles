@@ -25,6 +25,8 @@ cask "docker"
 # Security
 brew "nmap"
 
-# Mac App Store
-mas "Enpass", id: 732710998
-mas "Telegram", id: 747648890
+# Beyond this point should never be commited, these will typically be for setting which
+# are only relevant to one of my systems. Suggested workflow is to:
+# 1. Remove (cut or 'visual select and d' in Vim) lines from this point on
+# 2. Commit
+# 3. Paste (or p in Vim) 
