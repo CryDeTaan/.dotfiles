@@ -34,8 +34,8 @@ The dotfiles command will now be available in the session.
         dotfiles -i macos_config
 
 
-    Valid components:
-        all zsh vim macos_config macos_brew dotfiles(configure only)
+        Valid components:
+        all zsh vim aerospace macos_config macos_brew dotfiles(configure only)
 
 ------------------------------------------------------------
 ~ »
@@ -60,6 +60,15 @@ plugins, and install fzf. The zsh configuration is optimised to make use of the
 
 These can be installed on MacOS running the brew installer `dotfiles --install
 macos_brew` but is also available through most package managers.
+
+### AeroSpace
+
+The shared AeroSpace configuration is stored in
+`config/aerospace/aerospace.toml`. Machine-specific window rules can be added
+to `config/aerospace/aerospace.local.toml`; that file is ignored by Git. Build
+and reload the combined configuration with:
+
+`dotfiles --config aerospace`
 
 ## Commands
 

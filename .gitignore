@@ -1,1 +1,3 @@
 .DS_Store
+config/aerospace/aerospace.local.toml
+config/aerospace/aerospace.generated.toml

@@ -14,6 +14,8 @@ gitorigin="https://github.com/CryDeTaan/.dotfiles.git"
 
 macos_config="$gitpath/macOS/macOS"
 macos_brewfile="$gitpath/macOS/Brewfile"
+aerospace_build="$gitpath/config/aerospace/build-config"
+aerospace_generated="$gitpath/config/aerospace/aerospace.generated.toml"
 
 zsh_rc="$HOME/.zshrc"
 vim_rc="$HOME/.vimrc"
@@ -23,7 +25,7 @@ oh_my_zsh="$HOME/.oh-my-zsh"
 fzf="$HOME/.fzf"
 
 # Components this script knows how to setup
-declare -a components=("all" "zsh" "vim" "macos_config" "macos_brew" "dotfiles(configure only)")
+declare -a components=("all" "zsh" "vim" "aerospace" "macos_config" "macos_brew" "dotfiles(configure only)")
 
 function show_help() {
     echo """
@@ -57,6 +59,9 @@ function install() {
         vim)
             install_vim
             ;;
+        aerospace)
+            install_aerospace
+            ;;
         macos_config)
             install_macos_config
             ;;
@@ -66,6 +71,7 @@ function install() {
         all)
             install_zsh
             install_vim
+            install_aerospace
             install_macos_config
             install_macos_brew
             ;;
@@ -116,10 +122,12 @@ install_zsh() {
     mkdir -p "$HOME/.config/eza"
     ln -sf "$gitpath/config/eza/theme.yml" "$HOME/.config/eza/theme.yml"
 
-    # Set aerospace config
-    mkdir -p "$HOME/.config/aerospace/"
-    ln -sf "$gitpath/config/aerospace/aerospace.toml" "$HOME/.config/aerospace/aerospace.toml"
+}
 
+install_aerospace() {
+    mkdir -p "$HOME/.config/aerospace/"
+    ln -sf "$aerospace_generated" "$HOME/.config/aerospace/aerospace.toml"
+    "$aerospace_build"
 }
 
 install_vim() {
@@ -188,6 +196,9 @@ function config() {
         vim)
             config_vim
             ;;
+        aerospace)
+            config_aerospace
+            ;;
         macos_config)
             config_macos_config
             ;;
@@ -209,6 +220,10 @@ function config_zsh() {
 
 function config_vim() {
     vim $vim_rc
+}
+
+function config_aerospace() {
+    "$aerospace_build"
 }
 
 function config_macos_config() {

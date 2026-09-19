@@ -1,0 +1,26 @@
+#!/bin/zsh
+
+set -euo pipefail
+
+config_dir=${0:A:h}
+shared_config="$config_dir/aerospace.toml"
+local_config="$config_dir/aerospace.local.toml"
+generated_config="$config_dir/aerospace.generated.toml"
+temporary_config="$generated_config.$$"
+
+{
+    cat "$shared_config"
+
+    if [[ -f "$local_config" ]]; then
+        print
+        cat "$local_config"
+    fi
+} > "$temporary_config"
+
+mv "$temporary_config" "$generated_config"
+
+if command -v aerospace >/dev/null 2>&1; then
+    if ! aerospace reload-config --no-gui; then
+        print 'AeroSpace is not running; skipped config reload.'
+    fi
+fi
