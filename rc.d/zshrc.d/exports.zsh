@@ -39,3 +39,20 @@ fi
 which composer > /dev/null 2>&1 && export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 hash aws 2>/dev/null && hash jq 2>/dev/null && export AWS_PAGER="jq"
+
+# Optional local tool integrations.
+if [ -d "$HOME/.docker/completions" ]; then
+    fpath=("$HOME/.docker/completions" $fpath)
+fi
+
+if [ -d "$HOME/.docker/completions" ] || [ -d "$HOME/.config/hcloud/completion/zsh" ]; then
+    autoload -Uz compinit
+    compinit
+fi
+
+if [ -d "$HOME/.config/hcloud/completion/zsh" ]; then
+    fpath+=("$HOME/.config/hcloud/completion/zsh")
+fi
+
+[ -d "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"
+[ -d "$HOME/.lmstudio/bin" ] && export PATH="$PATH:$HOME/.lmstudio/bin"
