@@ -65,8 +65,19 @@ macos_brew` but is also available through most package managers.
 
 The shared AeroSpace configuration is stored in
 `config/aerospace/aerospace.toml`. Machine-specific window rules can be added
-to `config/aerospace/aerospace.local.toml`; that file is ignored by Git. Build
-and reload the combined configuration with:
+to `config/aerospace/aerospace.local.toml`; that file is ignored by Git.
+
+To add an automatic window assignment, open the application and run
+`aerospace list-apps`. Copy its bundle ID into a rule in the local config:
+
+```toml
+[[on-window-detected]]
+if.app-id = 'com.example.App'
+run = 'move-node-to-workspace W'
+```
+
+Replace `W` with the destination workspace. Build and reload the combined
+configuration with:
 
 `dotfiles --config aerospace`
 
