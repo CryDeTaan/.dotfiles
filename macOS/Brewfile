@@ -2,31 +2,17 @@ tap "homebrew/bundle"
 
 # GUI Apps
 cask "iterm2"
+tap "nikitabobko/tap", trusted: { cask: "aerospace" }
 cask "nikitabobko/tap/aerospace"
 cask "jordanbaird-ice"
 cask "raycast"
 
 # Terminal Apps and Tools
-brew "bash" # Latest Bash version
 brew "jq"
-brew "mas"
+brew "yq"
 brew "fd"
 brew "bat"
 brew "eza"
-brew "awscli"
 
-tap "FelixKratz/formulae"
-brew "borders"
-
-# Development
-cask "visual-studio-code"
-cask "docker"
-
-# Security
-brew "nmap"
-
-# Beyond this point should never be commited, these will typically be for setting which
-# are only relevant to one of my systems. Suggested workflow is to:
-# 1. Remove (cut or 'visual select and d' in Vim) lines from this point on
-# 2. Commit
-# 3. Paste (or p in Vim) 
+tap "FelixKratz/formulae", trusted: { formula: "borders" }
+brew "FelixKratz/formulae/borders"
