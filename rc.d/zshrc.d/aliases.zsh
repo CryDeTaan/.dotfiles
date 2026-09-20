@@ -4,7 +4,7 @@ alias :q="exit"
 # Use bat instead of cat if available.
 hash bat 2>/dev/null && alias cat="bat"
 
-# exa Aliases
+# eza Aliases
 if hash eza 2>/dev/null; then
     alias tree="eza -TL4 --long"
     alias ls="eza --long --header --git"
